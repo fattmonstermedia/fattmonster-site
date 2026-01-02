@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FattMonster Media | Pro Production</title>
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --bg-color: #080808;      
+            --card-bg: #111111;       
+            --text-color: #ffffff;
+            --accent-color: #ffffff;  
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- CENTERED HEADER (LOGO & TABS) --- */
+        header {
+            padding: 40px 5% 20px 5%;
+            text-align: center;
+            background: #080808;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container { margin-bottom: 20px; }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+        }
+
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --- THE TABS (NAVIGATION) --- */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-tabs a:hover {
+            color: #fff;
+            border-bottom: 2px solid #fff;
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 5%; }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 20px;
+        }
+        
+        .section-desc {
+            margin-bottom: 60px;
+            color: #888;
+            max-width: 800px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* --- CATEGORY HEADERS --- */
+        .gallery-category {
+            margin-top: 80px;
+            border-top: 1px solid #222;
+            padding-top: 40px;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #222; /* Subtle dark text for background feel */
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+        }
+        
+        .client-name {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            border-bottom: 2px solid #fff;
+        }
+
+        /* --- VIDEO CONTAINERS --- */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #111;
+            border: 1px solid #333;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- PHOTO GALLERY STYLES --- */
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .photo-card {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid #222;
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            opacity: 0.9;
+        }
+        
+        .photo-card:hover img {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        /* --- SERVICES GRID --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #fff;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .service-card p { color: #999; font-size: 0.95rem; }
+
+        /* --- CONTACT SECTION --- */
+        .contact-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h4 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; text-transform: uppercase; border-bottom: 1px solid #333; display: inline-block; padding-bottom: 5px;}
+        .contact-info p { margin-bottom: 40px; font-size: 1.1rem; color: #ccc; }
+        
+        .booking-widget {
+            background: #fff;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 768px) {
+            .contact-split { grid-template-columns: 1fr; }
+            .nav-tabs { gap: 20px; }
+            .nav-tabs a { font-size: 0.8rem; }
+            .logo-text { font-size: 1.8rem; }
+            .category-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" onerror="this.style.display='none'; document.getElementById('backup-logo').style.display='block';" class="logo-img" alt="FattMonster Logo">
+            <div id="backup-logo" class="logo-text" style="display:none;">FATTMONSTER</div>
+        </div>
+
+        <nav class="nav-tabs">
+            <a href="#audio">AUDIO</a>
+            <a href="#video">VIDEO</a>
+            <a href="#photo">PHOTO</a>
+            <a href="#services">AND MORE</a>
+        </nav>
+    </header>
+
+    <section id="video">
+        <div class="section-title">Video Production</div>
+        
+        <p class="section-desc">
+            I work with purpose and passion, for entertainment, education or preservation. 
+            Interviews, Podcasts, directing and producing commercials, campaigns, music videos, and capturing live events for broadcast, streaming, and recording environments. 
+            If you have a brand to build, positivity to promote, or a moment to preserve. We can help.
+        </p>
+
+        <div class="gallery-category">
+            <div class="category-title">COMMERCIAL</div>
+            
+            <div class="client-name">Dakota Children's Advocacy Center</div>
+            <p style="color:#888; margin-bottom:20px; font-style:italic;">
+                I'm proud to have worked with the North Dakota Children's Advocacy Center on their social media campaign in 2024.
+              They are an excellent resource for families that may encounter stories of child abuse.
+            </p>
+            
+            <div class="work-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/R6XSYwe9dmM" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-category">
+            <div class="category-title">MUSIC VIDEO</div>
+            
+            <div class="client-name">Avantide - "Sleep it Off"</div>
+            <div class="work-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/m47KT2F9X3M" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-category">
+            <div class="category-title">AND MORE</div>
+            
+            <div class="client-name">Mooncat's Kickstarter Campaign - Success!</div>
+            <div class="work-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/OBB2F_kZg_Q" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="photo" style="background: #0d0d0d;">
+        <div class="section-title">Photography</div>
+        <p class="section-desc">
+            My love of music and photography shine when I get the opportunity to work with other artists. 
+            I've been fortunate to work with wonderfully talented artists all over the U.S. in various mediums and cultures 
+            Here's a look at some recent photos from 2025.
+        </p>
+
+        <div class="gallery-category">
+            <div class="category-title">BANDS</div>
+            
+            <div class="client-name">Wasting Tape</div>
+            <div class="mini-grid">
+                <div class="photo-card"><img src="wasting1.jpg" alt="Wasting Tape"></div>
+                <div class="photo-card"><img src="wasting2.jpg" alt="Wasting Tape"></div>
+                <div class="photo-card"><img src="wasting3.jpg" alt="Wasting Tape"></div>
+            </div>
+
+            <div class="client-name">Mooncats</div>
+            <div class="mini-grid">
+                <div class="photo-card"><img src="moon1.jpg" alt="Mooncats"></div>
+                <div class="photo-card"><img src="moon2.jpg" alt="Mooncats"></div>
+                <div class="photo-card"><img src="moon3.jpg" alt="Mooncats"></div>
+            </div>
+        </div>
+
+        <div class="gallery-category">
+            <div class="category-title">BRANDS</div>
+            
+            <div class="client-name">Many Visions</div>
+            <div class="mini-grid">
+                <div class="photo-card"><img src="vision1.jpg" alt="Fashion Photography"></div>
+                <div class="photo-card"><img src="vision2.jpg" alt="Product Photography"></div>
+                <div class="photo-card"><img src="vision3.jpg" alt="Brand Photography"></div>
+            </div>
+        </div>
+
+        <div class="gallery-category">
+            <div class="category-title">BEYOND</div>
+            
+            <div class="client-name">Events, Portraits & Themes</div>
+            <div class="mini-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="photo-card"><img src="beyond1.jpg" alt="Beyond"></div>
+                <div class="photo-card"><img src="beyond2.jpg" alt="Beyond"></div>
+                <div class="photo-card"><img src="beyond3.jpg" alt="Beyond"></div>
+                <div class="photo-card"><img src="beyond4.jpg" alt="Beyond"></div>
+                <div class="photo-card"><img src="beyond5.jpg" alt="Beyond"></div>
+                <div class="photo-card"><img src="beyond6.jpg" alt="Beyond"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="audio">
+        <div class="section-title">Audio Services</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Recording</h3>
+                <p>Professional field recording, custom sound creation, and studio sessions for musicians or voiceover work.</p>
+            </div>
+            <div class="service-card">
+                <h3>Post-Production</h3>
+                <p>Editing, mixing, and recording for broadcast, film, or music release.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: #0d0d0d;">
+        <div class="section-title">Additional Services</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Creative direction and technical consulting for media projects.</p>
+            </div>
+            <div class="service-card">
+                <h3>Live Production</h3>
+                <p>On-site technical support, event recording, promotion, and coordinating.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">Booking & Contact</div>
+        <div class="contact-split">
+            
+            <div class="contact-info">
+                <p style="color:#888; margin-bottom:40px; font-size:1rem;">Ready to execute your project? Reach out directly or use the calendar to book a consultation.</p>
+                
+                <h4>Direct Line</h4>
+                <p>701-202-7287<br><span style="font-size:0.9rem; color:#666;">(Text or Call)</span></p>
+                
+                <h4>Email Inquiries</h4>
+                <p>fattmonster@gmail.com</p>
+
+                <h4>Location</h4>
+                <p>Mandan, North Dakota.<br><span style="font-size:0.9rem; color:#666;">Available for tour and travel!</span></p>
+            </div>
+
+            <div class="booking-widget">
+                <iframe 
+                    src="https://calendly.com/fattmonster/30min" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    title="Schedule a Call">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding:50px 5%; text-align:center; color:#444; border-top:1px solid #222; font-size:0.8rem;">
+        <p>&copy; 2026 FATTMONSTER MEDIA. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
