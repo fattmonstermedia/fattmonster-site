@@ -26,9 +26,10 @@
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* --- CENTERED HEADER (LOGO & TABS) --- */
+        /* --- CENTERED HEADER (SLIMMED DOWN) --- */
         header {
-            padding: 40px 5% 20px 5%;
+            /* Reduced padding from 40px/20px to 15px/15px */
+            padding: 15px 5% 15px 5%;
             text-align: center;
             background: #080808;
             border-bottom: 1px solid #222;
@@ -37,10 +38,12 @@
             z-index: 1000;
         }
 
-        .logo-container { margin-bottom: 20px; }
+        /* Reduced margin from 20px to 10px */
+        .logo-container { margin-bottom: 10px; }
 
         .logo-text {
-            font-size: 2.5rem;
+            /* Reduced size from 2.5rem to 2rem */
+            font-size: 2rem;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 4px;
@@ -48,7 +51,8 @@
         }
 
         .logo-img {
-            max-width: 250px;
+            /* Reduced max-width from 250px to 180px */
+            max-width: 180px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -58,12 +62,12 @@
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px; /* Slightly tighter gap */
             flex-wrap: wrap;
         }
 
         .nav-tabs a {
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Slightly smaller font for sleek look */
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -254,6 +258,7 @@
             <a href="#video">VIDEO</a>
             <a href="#photo">PHOTO</a>
             <a href="#services">AND MORE</a>
+            <a href="#contact" style="color:#fff; border-bottom:1px solid #555;">CONTACT</a>
         </nav>
     </header>
 
@@ -305,7 +310,7 @@
              <p style="color:#888; margin-bottom:20px; font-style:italic;">
                  I've produced several music videos over the years. A personal favorite was collaborating with my friends in 
                  Avantide, for Sleep it Off.
-                 
+             </p>
             <div class="work-grid">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/m47KT2F9X3M" frameborder="0" allowfullscreen></iframe>
@@ -319,7 +324,7 @@
             <div class="client-name">Mooncat's Kickstarter Campaign - Success!</div>
             <p style="color:#888; margin-bottom:20px; font-style:italic;">
                 Success! It was a pure joy to see this video help Mooncats reach their Kickstarter goal in 2025!
-                
+            </p>
             <div class="work-grid">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/OBB2F_kZg_Q" frameborder="0" allowfullscreen></iframe>
